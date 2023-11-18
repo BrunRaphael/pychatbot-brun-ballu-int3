@@ -18,18 +18,6 @@ def isolement1(files_names):
         full_name.extend(parts)
     return full_name
 
-files_names = list_of_files(directory, "txt")
-full_name = isolement1(files_names)
-print(full_name)
-
-#Getting only the names in a string
-all_names = []
-for j in range(len(full_name)):
-    if j % 2 != 0:
-        all_names.append(full_name[j])
-print(all_names)
-
-# Separating the names and ".txt"
 def isolement2(files_names):
     all_names2 = []
     for file_name in files_names:
@@ -39,9 +27,35 @@ def isolement2(files_names):
 
 directory = "./speeches"
 files_names = ['Chirac1.txt', 'Chirac2.txt', 'Giscard dEstaing.txt', 'Hollande.txt', 'Macron.txt', 'Mitterrand1.txt', 'Mitterrand2.txt', 'Sarkozy.txt']
-all_names2 = isolement2(files_names)
-print(all_names2)
 
-for i in range(len(all_names2)):
-    if  =< 9
+# Using isolement1
+full_name = isolement1(files_names)
+unique_full_name = []
+seen_names = set()
+for name in full_name:
+    name_without_12 = name.replace('1', '').replace('2', '')
+    if '1' in name or '2' in name:
+        if name_without_12 not in seen_names:
+            unique_full_name.append(name_without_12)
+            seen_names.add(name_without_12)
+    else:
+        unique_full_name.append(name)
+
+print(unique_full_name)
+
+# Using isolement2
+all_names2 = isolement2(files_names)
+unique_all_names2 = []
+seen_names2 = set()
+for name in all_names2:
+    name_without_12 = name.replace('1', '').replace('2', '')
+    if '1' in name or '2' in name:
+        if name_without_12 not in seen_names2:
+            unique_all_names2.append(name_without_12)
+            seen_names2.add(name_without_12)
+    else:
+        unique_all_names2.append(name)
+
+print(unique_all_names2)
+
 
